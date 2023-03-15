@@ -1,4 +1,5 @@
 global using SuperHeroApi._7.Models;
+using SuperHeroApi._7.Data;
 using SuperHeroApi._7.Services.SuperHeroService;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ISuperHeroService, SuperHeroService>();
+builder.Services.AddDbContext<DataContext>();
 
 var app = builder.Build();
 
