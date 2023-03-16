@@ -18,7 +18,7 @@ public class SuperHeroController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<SuperHero>>> GetAllHeroes()
     {
-        return _superHeroService.GetAllHeroes();
+        return await _superHeroService.GetAllHeroes();
     }
 
     [HttpGet("{id}")]

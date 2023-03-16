@@ -2,9 +2,9 @@
 
 public interface ISuperHeroService
 {
-    List<SuperHero> GetAllHeroes();
-    SuperHero GetHero(int id);
-    List<SuperHero> AddHero(SuperHero hero);
-    List<SuperHero>? EditHero(int id, SuperHero req);
-    List<SuperHero>? DeleteHero(int id);
+    Task<List<SuperHero>> GetAllHeroes();
+    Task<SuperHero?> GetHero(int id);
+    Task<List<SuperHero>?>AddHero(SuperHero hero);
+    Task<List<SuperHero>?> EditHero(int id, SuperHero req);
+   Task<List<SuperHero>?> DeleteHero(int id);
 }
