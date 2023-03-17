@@ -24,17 +24,17 @@ public class SuperHeroController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<SuperHero>> GetHero(int id)
     {
-        var result = _superHeroService.GetHero(id);
+        var result = await _superHeroService.GetHero(id);
         if (result == null)
-            return null;
+            return NotFound();
 
-        return result;
+        return Ok(result);
     }
 
     [HttpPost]
     public async Task<ActionResult<List<SuperHero>>> AddHero(SuperHero hero)
     {
-        var result = _superHeroService.AddHero(hero);
+        var result = await _superHeroService.AddHero(hero);
         
         return Ok(result);
     }
@@ -42,7 +42,7 @@ public class SuperHeroController : ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult<List<SuperHero>>> EditHero(int id, SuperHero req)
     {
-        var result = _superHeroService.EditHero(id, req);
+        var result = await _superHeroService.EditHero(id, req);
         if (result is null)
             return NotFound();
 
@@ -52,7 +52,7 @@ public class SuperHeroController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<ActionResult<List<SuperHero>>> DeleteHero(int id)
     {
-        var result = _superHeroService.DeleteHero(id);
+        var result = await _superHeroService.DeleteHero(id);
         if (result is null)
             return NotFound();
 

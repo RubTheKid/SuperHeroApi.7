@@ -6,17 +6,8 @@ namespace SuperHeroApi._7.Services.SuperHeroService;
 public class SuperHeroService : ISuperHeroService
 {
     private static List<SuperHero> superHeroes = new List<SuperHero>
-    {
-        new SuperHero
-        {
-            Id = 1,
-            Name = "Batman",
-            FirstName = "Bruce",
-            LastName = "Wayne",
-            Place = "Gotham"
-        }
+    { };
 
-    };
 
     private readonly DataContext _context;
 
@@ -45,7 +36,6 @@ public class SuperHeroService : ISuperHeroService
     {
         _context.SuperHeroes.Add(hero);
         await _context.SaveChangesAsync();
-
         return superHeroes;
     }
 
